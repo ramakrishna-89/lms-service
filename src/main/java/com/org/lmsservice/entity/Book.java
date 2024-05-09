@@ -41,7 +41,7 @@ public class Book {
 	private String genre;
 	
 	@Column(nullable = false)
-	private Integer price;
+	private Double price;
 
 	@Column(nullable = false)
 	private boolean availabilityStatus;

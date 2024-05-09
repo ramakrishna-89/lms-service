@@ -30,6 +30,6 @@ public class BookOrder {
 	private Integer quantity;
 	
 	@Column(nullable = false)
-	private Integer price;
+	private Double price;
 	
 }
