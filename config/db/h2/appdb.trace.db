@@ -1,0 +1,3 @@
+2024-05-09 19:28:28.564260+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]order (id bigint not null, library_id bigint not null, book_id bigint not null, price integer not null, quantity integer not null, primary key (id))"; expected "identifier"; SQL statement:
+create table order (id bigint not null, library_id bigint not null, book_id bigint not null, price integer not null, quantity integer not null, primary key (id)) [42001-224]

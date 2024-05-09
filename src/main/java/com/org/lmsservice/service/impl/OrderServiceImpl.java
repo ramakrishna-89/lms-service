@@ -7,8 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.org.lmsservice.dto.OrderDto;
-import com.org.lmsservice.entity.Order;
+import com.org.lmsservice.dto.BookOrderDto;
+import com.org.lmsservice.entity.BookOrder;
 import com.org.lmsservice.repository.OrderRepository;
 import com.org.lmsservice.service.iface.OrderService;
 
@@ -22,15 +22,15 @@ public class OrderServiceImpl implements OrderService {
 	private OrderRepository repository;
 
 	@Override
-	public OrderDto create(OrderDto dto) {
-		Order entity = new Order();
+	public BookOrderDto create(BookOrderDto dto) {
+		BookOrder entity = new BookOrder();
 		BeanUtils.copyProperties(dto, entity);
 		BeanUtils.copyProperties(repository.save(entity), dto);
 		return dto;
 	}
 
 	@Override
-	public OrderDto update(OrderDto dto) throws Exception {
+	public BookOrderDto update(BookOrderDto dto) throws Exception {
 		return repository.findById(dto.getId()).map(entity -> {
 			BeanUtils.copyProperties(dto, entity);
 			BeanUtils.copyProperties(repository.save(entity), dto);
@@ -39,18 +39,18 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderDto read(Long id) throws Exception {
+	public BookOrderDto read(Long id) throws Exception {
 		return repository.findById(id).map(entity -> {
-			OrderDto dto = new OrderDto();
+			BookOrderDto dto = new BookOrderDto();
 			BeanUtils.copyProperties(entity, dto);
 			return dto;
 		}).orElseThrow(() -> new RuntimeException("ID Not available"));
 	}
 
 	@Override
-	public List<OrderDto> readAll() throws Exception {
+	public List<BookOrderDto> readAll() throws Exception {
 		return repository.findAll().stream().map(entity -> {
-			OrderDto dto = new OrderDto();
+			BookOrderDto dto = new BookOrderDto();
 			BeanUtils.copyProperties(entity, dto);
 			return dto;
 		}).collect(Collectors.toList());

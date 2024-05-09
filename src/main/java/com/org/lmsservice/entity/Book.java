@@ -1,4 +1,4 @@
-package com.org.lmsservice.entity;
+	package com.org.lmsservice.entity;
 
 import java.time.LocalDate;
 
@@ -41,7 +41,7 @@ public class Book {
 	private String genre;
 	
 	@Column(nullable = false)
-	private Double price;
+	private Integer price;
 
 	@Column(nullable = false)
 	private boolean availabilityStatus;

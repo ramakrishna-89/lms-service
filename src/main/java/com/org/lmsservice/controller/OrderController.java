@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.org.lmsservice.dto.OrderDto;
+import com.org.lmsservice.dto.BookOrderDto;
 import com.org.lmsservice.service.iface.OrderService;
 
 import jakarta.validation.Valid;
@@ -27,7 +27,7 @@ public class OrderController {
 	private OrderService service;
 
 	@PostMapping
-	public ResponseEntity<Object> create(@RequestBody @Valid OrderDto dto, BindingResult result) {
+	public ResponseEntity<Object> create(@RequestBody @Valid BookOrderDto dto, BindingResult result) {
 		try {
 			if (result.hasErrors()) {
 				log.info("OrderController.create {}", result.getAllErrors());
@@ -41,7 +41,7 @@ public class OrderController {
 	}
 
 	@PutMapping
-	public ResponseEntity<Object> update(@RequestBody @Valid OrderDto dto, BindingResult result) {
+	public ResponseEntity<Object> update(@RequestBody @Valid BookOrderDto dto, BindingResult result) {
 		try {
 			if (result.hasErrors()) {
 				log.info("OrderController.update {}", result.getAllErrors());

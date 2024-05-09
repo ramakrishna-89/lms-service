@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Order {
+public class BookOrder {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column
 	private Long id;
 	
 	@Column(nullable = false)
@@ -29,6 +30,6 @@ public class Order {
 	private Integer quantity;
 	
 	@Column(nullable = false)
-	private Double price;
+	private Integer price;
 	
 }
